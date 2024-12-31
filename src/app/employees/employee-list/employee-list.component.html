@@ -1,7 +1,19 @@
 <h2>Employee List</h2>
 <button routerLink="/employees/add">Add Employee</button>
-<div *ngFor="let employee of employees; let i = index">
-  <p (click)="selectEmployee(i)">
-    {{ employee.name }} - {{ employee.email }}
-  </p>
+<div class="container">
+    <div *ngFor="let employee of employees; let i = index">
+        <div class="card">
+        
+            <p class="cookieHeading">{{ employee.name }}</p>
+            <p class="cookieDescription">{{ employee.email }} <br> {{ employee.position }}</p>
+        
+            <div class="buttonContainer">
+            <button [routerLink]="'/employees/edit/' + i" class="acceptButton">Edit</button>
+            <button class="declineButton">Delete</button>
+            </div>
+            
+        
+        </div>
+    
+    </div>
 </div>
