@@ -5,6 +5,11 @@
     row-gap: 50px;
 }
 
+h2 {
+    text-align: center;
+    margin: 60px;
+}
+
 .card {
     width: 300px;
     height: 220px;
