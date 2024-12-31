@@ -1,22 +1,25 @@
-<h2>{{ isEditMode ? 'Edit Employee' : 'Add Employee' }}</h2>
-<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
-  <label for="name">Name:</label>
-  <input id="name" formControlName="name" />
-  <div *ngIf="employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched">
-    Name is required.
-  </div>
+<div class="container">
+    <form class="form" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <p class="form-title">{{ isEditMode ? 'Edit Employee' : 'Add Employee' }}</p>
+        <div class="input-container">
+            <input id="email" formControlName="email" placeholder="Email" />
+            <span *ngIf="employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched">
+                Valid email is required.
+            </span>
+        </div>
+        <div class="input-container">
+            <input placeholder="Name" id="name" formControlName="name" />
+            <span *ngIf="employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched">
+            Name is required.
+            </span>
+        </div>
+        <div class="input-container">
+            <input placeholder="Position" id="position" formControlName="position" />
+            <span *ngIf="employeeForm.get('position')?.invalid && employeeForm.get('position')?.touched">
+                Valid position is required.
+            </span>
+        </div>
+        <button type="submit" [disabled]="employeeForm.invalid" class="submit">{{ isEditMode ? 'Update' : 'Add' }}</button>
 
-  <label for="email">Email:</label>
-  <input id="email" formControlName="email" />
-  <div *ngIf="employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched">
-    Valid email is required.
-  </div>
-
-  <label for="position">Position:</label>
-  <input id="position" formControlName="position" />
-  <div *ngIf="employeeForm.get('position')?.invalid && employeeForm.get('position')?.touched">
-    Valid position is required.
-  </div>
-
-  <button type="submit" [disabled]="employeeForm.invalid">Submit</button>
-</form>
+    </form>
+</div>
