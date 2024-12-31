@@ -3,16 +3,12 @@
 <div class="container">
     <div *ngFor="let employee of employees; let i = index">
         <div class="card">
-        
             <p class="cookieHeading">{{ employee.name }}</p>
             <p class="cookieDescription">{{ employee.email }} <br> {{ employee.position }}</p>
-        
             <div class="buttonContainer">
             <button [routerLink]="'/employees/edit/' + i" class="acceptButton">Edit</button>
-            <button class="declineButton">Delete</button>
+            <button (click)="selectEmployee(i)" class="declineButton">Delete</button>
             </div>
-            
-        
         </div>
     
     </div>

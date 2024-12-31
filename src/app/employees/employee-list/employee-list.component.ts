@@ -7,13 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-  employees = JSON.parse(localStorage.getItem('employees') || '[]');
+  employees: any[] = [];
+  employeeIndex: number | null = null;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.employees = JSON.parse(localStorage.getItem('employees') || '[]');
+  }
 
   selectEmployee(index: number) {
-    console.log('Selected employee index:', index);
+    console.log('selected index:' + index);
+    this.employeeIndex = index;
+
+    if (this.employeeIndex !== null) {
+      console.log('selected employee:' + this.employees[this.employeeIndex]);
+
+      this.employees.splice(this.employeeIndex, 1);
+      localStorage.setItem('employees', JSON.stringify(this.employees));
+      this.employeeIndex = null;
+
+      console.log('ppdated employees:', this.employees);
+    }
   }
+
 }
