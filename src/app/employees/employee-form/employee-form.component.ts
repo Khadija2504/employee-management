@@ -17,8 +17,9 @@ export class EmployeeFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.employeeForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]]
+      name: ['', [Validators.required, Validators.min(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      position: ['', Validators.required]
     });
 
     this.route.params.subscribe(params => {

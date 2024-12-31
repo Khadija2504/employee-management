@@ -12,5 +12,11 @@
     Valid email is required.
   </div>
 
+  <label for="position">Position:</label>
+  <input id="position" formControlName="position" />
+  <div *ngIf="employeeForm.get('position')?.invalid && employeeForm.get('position')?.touched">
+    Valid position is required.
+  </div>
+
   <button type="submit" [disabled]="employeeForm.invalid">Submit</button>
 </form>

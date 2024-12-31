@@ -6,6 +6,7 @@ import { EmployeeFormComponent } from './employee-form/employee-form.component';
 const routes: Routes = [
   { path: '', component: EmployeeListComponent },
   { path: 'add', component: EmployeeFormComponent },
+  { path: 'edit/:id', component: EmployeeFormComponent }
 ];
  
 @NgModule({
