@@ -1,0 +1,7 @@
+<h2>Employee List</h2>
+<button routerLink="/employees/add">Add Employee</button>
+<div *ngFor="let employee of employees; let i = index">
+  <p (click)="selectEmployee(i)">
+    {{ employee.name }} - {{ employee.email }}
+  </p>
+</div>
