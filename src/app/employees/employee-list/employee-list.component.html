@@ -1,7 +1,7 @@
 <h2>Employees list</h2>
 <div class="container">
     <div *ngFor="let employee of employees; let i = index">
-        <div class="card">
+        <div (click)="selectEmployee(i)" [appHighlight]="'lightblue'" [style.cursor]="'pointer'" class="card">
             <p class="cookieHeading">{{ employee.name }}</p>
             <p class="cookieDescription">{{ employee.email }} <br> {{ employee.position }}</p>
             <div class="buttonContainer">
