@@ -18,6 +18,11 @@ export class EmployeeListComponent implements OnInit {
 
   selectEmployee(index: number) {
     console.log('selected index:' + index);
+    
+  }
+
+  deleteEmployee(index: number) {
+    console.log('selected index:' + index);
     this.employeeIndex = index;
 
     if (this.employeeIndex !== null) {
