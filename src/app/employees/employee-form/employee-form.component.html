@@ -19,6 +19,12 @@
                 Valid position is required.
             </span>
         </div>
+        <div class="input-container">
+            <input placeholder="Hire Date" type="date" id="hireDate" formControlName="hireDate" />
+            <span *ngIf="employeeForm.get('hireDate')?.invalid && employeeForm.get('hireDate')?.touched">
+                Valid hire date is required.
+            </span>
+        </div>
         <button type="submit" [disabled]="employeeForm.invalid" class="submit">{{ isEditMode ? 'Update' : 'Add' }}</button>
 
     </form>

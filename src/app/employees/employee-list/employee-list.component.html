@@ -3,10 +3,10 @@
     <div *ngFor="let employee of employees; let i = index">
         <div (click)="selectEmployee(i)" [appHighlight]="'lightblue'" [style.cursor]="'pointer'" class="card">
             <p class="cookieHeading">{{ employee.name }}</p>
-            <p class="cookieDescription">{{ employee.email }} <br> {{ employee.position }}</p>
+            <p class="cookieDescription">{{ employee.email }} <br> {{ employee.position }} <br> {{ employee.hireDate | formatDate }} </p>
             <div class="buttonContainer">
             <button [routerLink]="'/employees/edit/' + i" class="acceptButton">Edit</button>
-            <button (click)="selectEmployee(i)" class="declineButton">Delete</button>
+            <button (click)="deleteEmployee(i)" class="declineButton">Delete</button>
             </div>
         </div>
     
