@@ -31,6 +31,8 @@ export class EmployeeFormComponent implements OnInit {
         const employee = employees[this.employeeIndex];
         if (employee) {
           this.employeeForm.patchValue(employee);
+        } else {
+          this.router.navigate(['/employee']);
         }
       }
     });
