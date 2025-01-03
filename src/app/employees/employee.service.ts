@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { Employee } from './employee.model';
 
 @Injectable({
@@ -19,8 +20,13 @@ export class EmployeeService {
     localStorage.setItem(this.employeesKey, JSON.stringify(employees));
   }
 
-  getEmployees(): Employee[] {
-    return this.loadEmployees();
+  getEmployees(): Observable<Employee[]> {
+    return of(this.loadEmployees()).pipe(
+      catchError(err => {
+        console.error('Failed to fetch employees', err);
+        return throwError(() => new Error('Failed to fetch employees'));
+      })
+    );
   }
 
   addEmployee(employee: Employee): void {
